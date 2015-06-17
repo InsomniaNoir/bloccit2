@@ -1,0 +1,26 @@
+<h1>New Question</h1>
+
+<div class = "row">
+  <div class = "col-md-4">
+    <p>Guidelines for Posts</p>
+    <ul>
+        <li>You do not talk about new posts</li>
+        <li>You DO NOT talk about new posts</li>
+        <li>You do not go over the administrator's helmet</li>
+        <li>Never underestimate the power of the Schwartz!</li>
+    </ul>
+  </div>
+  <div class = "col-md-8">
+    <%= form_for @question do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control', placeholder: 'Enter Question' %>
+
+      <%= f.label :body %>
+      <%= t.text_area :body, rows: 8, class: 'form-control', placeholder: 'Run yer mouth here.' %>
+  </div>
+  <div class = 'form-group'>
+      <%= f.submit "Save", class: 'btn btn-success' %>
+  </div>
+    <% end %>
+  </div>
+</div>
