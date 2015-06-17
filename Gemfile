@@ -9,6 +9,7 @@ gem 'pry-rails'
 # Use SCSS for stylesheets
 
 gem 'bootstrap-sass'
+gem 'faker'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
