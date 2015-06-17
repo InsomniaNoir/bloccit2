@@ -1,14 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'question/index'
-
-  get 'question/show'
-
-  get 'question/edit'
-
-  get 'question/new'
 
   resources :posts
+  resources :questions
 
   get 'about' => 'welcome#about'
 
