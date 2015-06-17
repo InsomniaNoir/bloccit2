@@ -1,6 +1,8 @@
 require 'faker'
 
  # Create Users
+ users = User.all
+ 
  5.times do
    user = User.new(
      name:     Faker::Name.name,
@@ -10,7 +12,7 @@ require 'faker'
    user.skip_confirmation!
    user.save!
  end
- users = User.all
+
 
  # Create Posts
  50.times do
@@ -30,13 +32,6 @@ require 'faker'
      body: Faker::Lorem.paragraph
    )
  end
-
-user = User.first
-user.skip_reconfirmation!
-user.update_attributes!(
-  email: 'youremail.com',
-  password: 'helloworld'
-)
 
 puts "Seed finished"
 puts "#{User.count} users created"
