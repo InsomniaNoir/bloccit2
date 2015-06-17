@@ -20,8 +20,7 @@
        <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Elucidate." %>
      </div>
      <div class = "form-group">
-       <%= f.check_box_tag(:resolved) %>
-       <%= f.label_tag(:resolved), "Resolved?" %>
+       <%= f.check_box(:resolved) %> Resolved?
      </div>
      <div class="form-group">
        <%= f.submit "Save", class: 'btn btn-success' %>
