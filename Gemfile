@@ -7,7 +7,6 @@ gem 'pry-rails'
 # Use sqlite3 as the database for Active Record
 
 # Use SCSS for stylesheets
-
 gem 'bootstrap-sass'
 
 # Use Uglifier as compressor for JavaScript assets
