@@ -21,7 +21,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(params.require(:topic).permit(:name, :description, :public))
+    @topic = current_user.topics.build(topic_params)
     authorize @topic
     if @topic.save
       redirect_to @topic, notice: "Topic was saved successfully."
@@ -34,11 +34,17 @@ class TopicsController < ApplicationController
   def update
     @topic = Topic.find(params[:id])
     authorize @topic
-    if @topic.update_attributes(params.require(:topic).permit(:name, :description, :public))
+    if current_user.topics.build(topic_params)
       redirect_to :edit
     else
       flash[:error] = "ID-10-T error. Please try again."
       render :edit
     end
   end
+end
+
+private
+
+def topic_params
+  params_require(:topic).permit(:name, :description, :publics)
 end
