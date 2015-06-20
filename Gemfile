@@ -29,6 +29,7 @@ gem 'rails_12factor'
 gem 'devise'
 gem 'faker'
 gem 'pundit'
+gem 'figaro'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -40,6 +41,7 @@ gem 'pundit'
 
 group :production do
   gem 'pg'
+
 end
 
 group :development, :test do
