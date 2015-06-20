@@ -25,7 +25,7 @@ topics = Topic.all
  50.times do
    Post.create!(
      user:   users.sample,
-     topic: topics.sample,
+     topic:  topics.sample,
      title:  Faker::Lorem.sentence,
      body:   Faker::Lorem.paragraph
    )
@@ -41,10 +41,19 @@ topics = Topic.all
    )
  end
 
+ 15.times do
+  Topic.create!(
+    name:         Faker::Lorem.sentence,
+    description:  Faker::Lorem.paragraph
+  )
+end
+topics = Topic.all
+
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{Topic.count} topics created"
 
 
 # Create an admin user
