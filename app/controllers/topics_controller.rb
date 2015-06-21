@@ -34,7 +34,7 @@ class TopicsController < ApplicationController
   def update
     @topic = Topic.find(params[:id])
     authorize @topic
-    if current_user.update_attributes(topic_params)
+    if @topic.update_attributes(topic_params)
       redirect_to :edit
     else
       flash[:error] = "ID-10-T error. Please try again."
