@@ -35,7 +35,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     authorize @topic
     if @topic.update_attributes(topic_params)
-      redirect_to :edit
+      redirect_to @topic
     else
       flash[:error] = "ID-10-T error. Please try again."
       render :edit
