@@ -14,9 +14,9 @@
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control', placeholder: 'Enter Post Title' %>
   <% end %>
-  <% form_group_tag(post.errors[body]) do %>
-    <%= f.label :body %>
-    <%= f.text_area :body, class: 'form-control', placeholder: 'Enter Post Body' %>
+  <% form_group_tag(post.errors[:description]) do %>
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control', placeholder: 'Enter Topic description' %>
   <% end %>
   <div class="form-group">
     <%= f.submit 'Save', class: 'btn btn-success' %>
