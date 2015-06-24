@@ -14,7 +14,7 @@
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control', placeholder: 'Enter Topic' %>
   <% end %>
-  <% form_group_tag(post.errors[body]) do %>
+  <% form_group_tag(topic.errors[:body]) do %>
     <%= f.label :body %>
     <%= f.text_area :body, class: 'form-control', placeholder: 'Enter Post Body' %>
   <% end %>
