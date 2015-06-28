@@ -48,9 +48,3 @@ private
    params.require(:topic).permit(:name, :description, :public, :user_id)
  end
 end
-
-private
-
-def topic_params
-  params_require(:topic).permit(:name, :description, :publics)
-end
