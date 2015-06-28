@@ -48,3 +48,4 @@ private
    params.require(:topic).permit(:name, :description, :public, :user_id)
  end
 end
+end

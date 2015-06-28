@@ -20,7 +20,9 @@
 
 <div class="row">
   <h2>Comments</h2>
+
   <div class="col-md-12">
+    <%= if current_user %>
     <%= render @comments %>
     <%= render partial: 'comments/form', collection: {topic: @topic, comment: @comment, post: @post} %>
   </div>
