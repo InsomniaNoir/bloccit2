@@ -11,7 +11,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? or not post.published? (record.user == user || user.admin? || user.moderator?)
+    user.present? && (record.user == user || user.admin? || user.moderator?)
   end
 
   def index?
