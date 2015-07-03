@@ -2,11 +2,12 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
-    @comments = @post.comments
+    @comment.user_id = current_user.id
+    @comment.user = current_user
     if @comment.save
-      redirect_to [@post.topic, @post], notice: "Comment saved successfully."
+      redirect_to [@post], notice: "Comment saved successfully."
     else
-      redirect_to [@post.topic, @post], notice: "Comment failed to save."
+      redirect_to @post, notice: "Comment failed to save."
     end
    end
 
