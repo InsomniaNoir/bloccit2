@@ -45,6 +45,7 @@ gem 'will_paginate', '~> 3.0.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+ 
 
 group :production do
   gem 'pg'
