@@ -9,13 +9,8 @@ Rails.application.routes.draw do
     resources :posts, except: [:index]
   end
 
-<<<<<<< Updated upstream
   resources :posts, only: [] do
     resources :comments, only: [:create, :destroy]
-=======
-  resources :posts do
-    resources :comments, only: [:create]    
->>>>>>> Stashed changes
   end
 
   get 'about' => 'welcome#about'
