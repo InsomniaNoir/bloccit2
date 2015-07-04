@@ -1,6 +1,6 @@
-class PostPolicy < ApplicationPolicy
+class CommentPolicy < ApplicationPolicy
   class Scope < Scope
-        
+
     def resolve
       if user.admin?
         scope.all

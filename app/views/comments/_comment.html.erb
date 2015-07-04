@@ -5,7 +5,11 @@
 <<<<<<< Updated upstream
       <%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
       <% if policy(comment).destroy? %>
+<<<<<<< HEAD
         | <%= link_to "Delete", [@post, comment], method: :delete %>
+=======
+        | <%= link_to "Delete", comment, method: :delete %>
+>>>>>>> bed7a21c8b732c38a2c03aa4c02dd01ae238a779
       <% end %>
 =======
       <em><%= comment.user.name || comment.user.email %></em>
