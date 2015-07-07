@@ -1,10 +1,6 @@
 <% if current_user %>
   <h4>Add a comment:</h4>
-<<<<<<< Updated upstream
   <%= form_for [post, post.comments.new] do |f| %>
-=======
-  <%= form_for [post, comment] do |f| %>
->>>>>>> Stashed changes
     <%= f.label :user_id %>
     <%= f.text_field :body, class: 'form-control', placeholder: 'Enter your comment' %>
     <%= f.submit "Save", class: 'btn btn-success' %>
