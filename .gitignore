@@ -24,3 +24,5 @@ public/uploads
 
 #Secrets. Shhhhhh.
 config/secrets.yml
+
+/config/cloudinary.yml
