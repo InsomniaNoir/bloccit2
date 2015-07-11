@@ -33,6 +33,7 @@ gem 'pundit'
 gem 'figaro'
 gem 'redcarpet'
 gem 'carrierwave'
+gem 'cloudinary'
 gem 'mini_magick'
 gem 'fog'
 
