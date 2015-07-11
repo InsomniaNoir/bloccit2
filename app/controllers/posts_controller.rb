@@ -42,7 +42,7 @@ class PostsController < ApplicationController
        redirect_to [@topic, @post]
      else
        flash[:error] = "ID-10-T error. Please try again."
-       render :new
+       render :edit
      end
    end
 
