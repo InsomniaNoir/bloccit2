@@ -46,7 +46,6 @@ gem 'will_paginate', '~> 3.0.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
- 
 
 group :production do
   gem 'pg'
@@ -64,8 +63,7 @@ group :development, :test do
   gem 'spring'
 end
 
-group :development do
-  gem 'sqlite3'
-  gem "better_errors"
-  gem "binding_of_caller"
-end
+gem 'sqlite3'
+gem 'carrierwave', '~> 0.9'
+gem "better_errors"
+gem "binding_of_caller"

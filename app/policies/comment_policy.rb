@@ -1,5 +1,20 @@
 class CommentPolicy < ApplicationPolicy
-  def destroy?
-    user.present? && (record.user == user || user.admin? || user.moderator? )
+  class Scope < Scope
+
+    def resolve
+      if user.admin?
+        scope.all
+      else
+        scope.where(:published => true)
+      end
+    end
+  end
+
+  def update?
+    user.present? && (user.admin? || !post.published?)
+  end
+
+  def index?
+    true
   end
 end

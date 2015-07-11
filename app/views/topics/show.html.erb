@@ -17,7 +17,7 @@
            <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
            Submitted <%= time_ago_in_words(post.created_at) %> ago by
            <%= post.user.name %><br>
-           <%= render partial: 'comments/form', locals: {comment: Comment.new, post: post} %>
+           <%= render partial: 'comments/form', locals: { comment: Comment.new, post: post } %>
            <%= post.comments.count %> comments
            <%= render post.comments %>
          </small>
@@ -29,5 +29,9 @@
     <% if policy(Post.new).create? %>
       <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
     <% end %>
+
+    <% if policy(@topic).destroy? %>
+    <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
+  <% end %>
   </div>
 </div>

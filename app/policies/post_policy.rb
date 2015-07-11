@@ -1,6 +1,6 @@
 class PostPolicy < ApplicationPolicy
   class Scope < Scope
-        
+
     def resolve
       if user.admin?
         scope.all
@@ -11,7 +11,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? or not post.published?
+    user.present? && (user.admin? || !post.published?)
   end
 
   def index?
