@@ -32,7 +32,6 @@ gem 'faker'
 gem 'pundit'
 gem 'figaro'
 gem 'redcarpet'
-gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
@@ -62,8 +61,7 @@ group :development, :test do
   gem 'spring'
 end
 
-group :development do
-  gem 'sqlite3'
-  gem "better_errors"
-  gem "binding_of_caller"
-end
+gem 'sqlite3'
+gem 'carrierwave', '~> 0.9'
+gem "better_errors"
+gem "binding_of_caller"

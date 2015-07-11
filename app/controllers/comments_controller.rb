@@ -5,10 +5,11 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to @post, notice: "Comment saved successfully."
+      flash[:notice] = "Comment saved successfully."
     else
-      redirect_to @post, notice: "Comment failed to save."
+      flash[:error] = "Comment failed to save."
     end
+    redirect_to [@post.topic, @post]
    end
 
   def destroy
@@ -18,11 +19,10 @@ class CommentsController < ApplicationController
     authorize @comment
     if @comment.destroy
       flash[:notice] = "Comment was removed."
-      redirect_to @post
     else
       flash[:error] = "Comment couldn't be deleted. Try again."
-      redirect_to @post
     end
+    redirect_to [@post.topic, @post]
   end
 
 private
