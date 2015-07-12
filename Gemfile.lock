@@ -316,12 +316,8 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   byebug
-<<<<<<< HEAD
   carrierwave
   cloudinary
-=======
-  carrierwave (~> 0.9)
->>>>>>> destroy-assignment
   coffee-rails (~> 4.1.0)
   devise
   faker

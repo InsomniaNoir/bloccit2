@@ -64,6 +64,5 @@ group :development, :test do
 end
 
 gem 'sqlite3'
-gem 'carrierwave', '~> 0.9'
 gem "better_errors"
 gem "binding_of_caller"
