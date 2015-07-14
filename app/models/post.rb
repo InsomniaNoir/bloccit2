@@ -4,7 +4,9 @@ class Post < ActiveRecord::Base
   has_one :summary
   belongs_to :topic
   has_many :votes
+  has_one :image
 
+  mount_uploader :image, ImagePostUploader
   default_scope { order('created_at DESC') }
 
   validates :title, length: { minimum: 5 }, presence: true
