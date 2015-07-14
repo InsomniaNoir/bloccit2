@@ -1,16 +1,5 @@
+require 'rails_helper'
 
-require 'spec_helper'
-
-
-describe Vote do
-
-  vote = Vote.new
-  describe "validations" do
-    describe "value validations" do
-      it "allows -1 or 1 as values" do
-      expect(vote).to_eq( 1, -1 )
-
-      end
-    end
-  end
+RSpec.describe Vote, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end
