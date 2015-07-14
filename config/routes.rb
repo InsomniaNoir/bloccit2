@@ -14,8 +14,10 @@ Rails.application.routes.draw do
   end
 
   get 'about' => 'welcome#about'
-
   root to: 'welcome#index'
+
+  post '/up_vote' => 'votes#up_vote', as: :up_vote
+  post '/down_vote' => 'votes#down_vote', as: :down_vote
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

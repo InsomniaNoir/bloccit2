@@ -1,6 +1,8 @@
 <h1>
   <%= image_tag( @post.image.url ) if @post.image? %>
 </h1>
+
+<%= render partial: "votes/voter", locals: {post: @post} %>
 <h1><%= markdown_to_html @post.title %></h1>
 
 <div class="row">
@@ -19,6 +21,14 @@
     <% if policy(@post).destroy? %>
       <%= link_to "Delete Post", [@post.topic, @post], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this post?' } %>
     <% end %>
+
+    <div>
+      <h3><%= pluralize(@post.points, 'point') %></h3>
+      <small>
+        <%= pluralize(@post.up_votes, 'Up vote') %>
+        <%= pluralize(@post.down_votes, 'Down vote') %>
+      </small>
+    </div>
   </div>
 </div>
 
