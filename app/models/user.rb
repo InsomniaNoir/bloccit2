@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :posts
   has_many :topics
-  has_many :comments
-  
+  has_many :comments, dependent: :destroy
+  has_many :votes
+
   mount_uploader :avatar, AvatarUploader
 
   def admin?

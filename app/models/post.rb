@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_one :summary
   belongs_to :topic
-  has_many :votes
+  has_many :votes, dependent: :destroy
   has_one :image
 
   mount_uploader :image, ImagePostUploader
@@ -30,6 +30,6 @@ class Post < ActiveRecord::Base
 
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
-  #validates :topic, presence: true
-  #validates :user, presence: true
+  validates :topic, presence: true
+  validates :user, presence: true
 end
