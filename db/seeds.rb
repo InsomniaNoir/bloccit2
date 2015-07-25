@@ -78,3 +78,5 @@ puts "#{Topic.count} topics created"
  )
  member.skip_confirmation!
  member.save!
+
+ post.create_vote

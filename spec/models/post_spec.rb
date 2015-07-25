@@ -6,7 +6,7 @@ describe Post do
     before do
       @user = User.create
       @topic = Topic.create
-      @post = Post.create(title: 'post title', body: 'Post bodies must be pretty long.')
+      @post = associated_post
       3.times { @topic.post.votes.create(value: 1) }
       2.times { @topic.post.votes.create(value: -1) }
    end
@@ -23,10 +23,39 @@ describe Post do
     end
   end
 
-  describe 'points' do
-    it "returns the sum of all down and up votes" do
-      expect( @topic.post.points ).to_eq( 1 )
-      end
-    end
+  describe '#points' do
+       it "returns the sum of all down and up votes" do
+         expect( @post.points ).to eq(1) # 3 - 2
+       end
+     end
+
+ describe '#create_vote' do
+   it "generates an up-vote when explicitly called" do
+     post = associated_post
+     expect( post.up_votes ).to eq(0)
+     post.create_vote
+     expect( post.up_votes ).to eq(1)
+   end
+ end
+
+  def associated_post(options={})
+    post_options = {
+      title: 'Post title',
+      body: 'Post bodies must be pretty long',
+      topic: Topic.create(name: 'Topic name'),
+      user: authenticated_user,
+    }.merge(options)
+
+    Post.create(post_options)
+  end
+
+  def authenticated_user(options={})
+    user_options = { email: "email#{rand}@fake.com", password: 'password' }.merge(options)
+    user = User.new(user_options)
+    user.skip_confirmation!
+    user.save
+    user
+  end
+
   end
 end
