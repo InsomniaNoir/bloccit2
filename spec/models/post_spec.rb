@@ -4,22 +4,21 @@ describe Post do
   describe "vote methods" do
 
     before do
-      @user = User.create
-      @topic = Topic.create
-      @post = associated_post
-      3.times { @topic.post.votes.create(value: 1) }
-      2.times { @topic.post.votes.create(value: -1) }
-   end
+    @post = associated_post
 
-   describe '#up_votes' do
-     it "counts the number of votes with the value of 1" do
-       expect( @topic.post.up_votes ).to_eq(3)
-     end
-   end
+    3.times { @post.votes.create(value: 1) }
+    2.times { @post.votes.create(value: -1) }
+  end
+
+  describe '#up_votes' do
+    it "counts the number of votes with value = 1" do
+      expect( @post.up_votes ).to eq(3)
+    end
+  end
 
   describe '#down_votes' do
     it "counts the number of votes with the value of -1" do
-      expect( @topic.post.down_votes ).to_eq(2)
+      expect( @post.down_votes ).to eq(2)
     end
   end
 
@@ -38,18 +37,18 @@ describe Post do
    end
  end
 
-  def associated_post(options={})
+  def associated_post(options = {})
     post_options = {
       title: 'Post title',
       body: 'Post bodies must be pretty long',
       topic: Topic.create(name: 'Topic name'),
-      user: authenticated_user,
+      user: authenticated_user
     }.merge(options)
 
     Post.create(post_options)
   end
 
-  def authenticated_user(options={})
+  def authenticated_user(options = {})
     user_options = { email: "email#{rand}@fake.com", password: 'password' }.merge(options)
     user = User.new(user_options)
     user.skip_confirmation!

@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_one :summary
   belongs_to :topic
-  has_many :votes, dependent: :destroy
+  has_many :votes
   has_one :image
 
   mount_uploader :image, ImagePostUploader
