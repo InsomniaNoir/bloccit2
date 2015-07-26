@@ -9,6 +9,12 @@ class Post < ActiveRecord::Base
   mount_uploader :image, ImagePostUploader
   default_scope { order('rank DESC') }
 
+  def save_with_initial_vote
+    ActiveRecord::Base.transaction do
+      user.votes.create(value: 1, post: self)
+    end
+  end
+
   def up_votes
     votes.where(value: 1).count
   end
