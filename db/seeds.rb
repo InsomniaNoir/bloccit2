@@ -30,6 +30,7 @@ topics = Topic.all
      body:   Faker::Lorem.paragraph
    )
    post.update_attributes!(created_at: rand(10.minutes .. 1.year).ago)
+   post.create_vote
    post.update_rank
  end
  posts = Post.all
@@ -78,5 +79,3 @@ puts "#{Topic.count} topics created"
  )
  member.skip_confirmation!
  member.save!
-
- post.create_vote
