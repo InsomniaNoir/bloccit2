@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   belongs_to :topic
   has_many :votes
   has_one :image
+  has_many :favorites, dependent: :destroy
 
   mount_uploader :image, ImagePostUploader
   default_scope { order('rank DESC') }

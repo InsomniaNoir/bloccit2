@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  </head>
+  <body>
+    <h1>New comment to "<%= @post.title %>"</h1>
+    <small>
+      By: <%= @comment.user.name %>
+    </small>
+    <p>
+      <%= @comment.body %>
+    </p>
+  </body>
+</html>
