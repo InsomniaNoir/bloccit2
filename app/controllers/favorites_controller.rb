@@ -11,6 +11,7 @@ class FavoritesController < ApplicationController
     else
       flash[:error] = "Something isn't stirring the kool-aid. Please try again."
       redirect_to post
+    end
   end
 
   def destroy
