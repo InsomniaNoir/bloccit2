@@ -44,7 +44,7 @@ describe Comment do
       it "does not send emails, even to users who have favorited" do
         @user.favorites.where(post: @post).create
 
-        expect ( FavoriteMailer )
+        expect( FavoriteMailer )
           .not_to receive( :new_comment )
 
         @comment.save
