@@ -2,14 +2,12 @@
 <div class="vote-arrows pull-left">
    <div><%= link_to " ",
      post_up_vote_path(post),
-     class: 'glyphicon glyphicon-chevron-up', method: :post do %>
+     class: up_vote_link_classes(post), method: :post do %>
      <% end %>
    </div>
    <div><strong><%= post.points %></strong></div>
-   <div><%= link_to " ",
-     post_down_vote_path(post),
-     class: 'glyphicon glyphicon-chevron-down',
-     method: :post do %>
+   <div><%= link_to " ", post_down_vote_path(post),
+     class: down_vote_link_classes(post), method: :post do%>
      <% end %>
    </div>
  </div>
