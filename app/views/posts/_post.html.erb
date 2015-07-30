@@ -1,0 +1,19 @@
+<div class="media">
+  <%= render partial: 'votes/voter', locals: { post: post } %>
+  <div class="media-body">
+    <h4 class="media-heading">
+      <%= image_tag( post.image.url ) if post.image? %>
+      <%= link_to (markdown_to_html post.title), [post.topic, post] %>
+    </h4>
+
+
+    <small>
+     <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
+     Submitted <%= time_ago_in_words(post.created_at) %> ago by
+     <%= post.user.name %><br>
+     <%= render partial: 'comments/form', locals: { comment: Comment.new, post: post } %>
+     <%= post.comments.count %> comments
+     <%= render post.comments %>
+   </small>
+  </div>
+</div>

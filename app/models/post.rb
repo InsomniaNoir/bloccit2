@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
 
   mount_uploader :image, ImagePostUploader
   default_scope { order('rank DESC') }
+  scope :visible_to, -> (user) { user ? all : joins(:topic).where('topic.public' => true) }
 
   def save_with_initial_vote
     ActiveRecord::Base.transaction do
