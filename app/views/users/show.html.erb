@@ -1,0 +1,11 @@
+<h1><%= @user.name %></h1>
+
+<h2>Posts</h2>
+<% @post.each do |post| %>
+  <%= post.title %>
+<% end %>
+
+<h2>Comments</h2>
+<% @comments.each do |comment| %>
+  <%= comment.body %>
+<% end %>
