@@ -10,10 +10,6 @@ class CommentPolicy < ApplicationPolicy
     end
   end
 
-  def update?
-    user.present? && (user.admin? || !post.published?)
-  end
-
   def index?
     true
   end
