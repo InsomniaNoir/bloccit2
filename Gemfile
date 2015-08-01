@@ -49,11 +49,13 @@ gem 'newrelic_rpm'
 # gem 'capistrano-rails', group: :development
 
 group :production do
+  # PostgreSQL
   gem 'pg'
-end
 
-gem 'puma', group: :development
-gem 'puma', group: :production
+  # Puma
+  gem 'puma'
+  
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -70,8 +72,13 @@ group :development, :test do
 
   # Capybara
   gem 'capybara'
+
+  # SQLite3
+  gem 'sqlite3'
+
+  # Puma
+  gem 'puma'
 end
 
-# gem 'sqlite3'
 gem "better_errors"
 gem "binding_of_caller"
