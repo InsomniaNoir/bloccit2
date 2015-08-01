@@ -1,14 +1,14 @@
 <% if policy(Vote.new).create? %>
 <div class="vote-arrows pull-left">
-   <div><%= link_to " ",
+   <div><%= link_to "",
      post_up_vote_path(post),
-     class: up_vote_link_classes(post), method: :post do %>
-     <% end %>
+     class: up_vote_link_classes(post), method: :post  %>
+
    </div>
    <div><strong><%= post.points %></strong></div>
-   <div><%= link_to " ", post_down_vote_path(post),
-     class: down_vote_link_classes(post), method: :post do%>
-     <% end %>
+   <div><%= link_to "", post_down_vote_path(post),
+     class: down_vote_link_classes(post), method: :post %>
+  
    </div>
  </div>
 <% end %>

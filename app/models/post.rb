@@ -3,13 +3,13 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_one :summary
   belongs_to :topic
-  has_many :votes
+  has_many :votes, dependent: :destroy
   has_one :image
   has_many :favorites, dependent: :destroy
 
   mount_uploader :image, ImagePostUploader
   default_scope { order('rank DESC') }
-  scope :visible_to, -> (user) { user ? all : joins(:topic).where('topic.public' => true) }
+  scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
 
   def save_with_initial_vote
     ActiveRecord::Base.transaction do

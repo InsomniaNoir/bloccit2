@@ -15,7 +15,7 @@ describe FavoritesController do
     it "creates a favorite for the current user and specified post" do
       expect( @user.favorites.find_by_post_id(@post.id) ).to be_nil
 
-      post :create, { post_id: @post_id }
+      post :create, { post_id: @post.id }
 
       expect( @user.favorites.find_by_post_id(@post.id) ).not_to be_nil
     end
@@ -26,7 +26,7 @@ describe FavoritesController do
       favorite = @user.favorites.where(post: @post).create
       expect( @user.favorites.find_by_post_id(@post.id) ).not_to be_nil
 
-      delete :destroy, { post_id: @post_id, id: favorite.id }
+      delete :destroy, { post_id: @post.id, id: favorite.id }
 
       expect( @user.favorites.find_by_post_id(@post.id) ).to be_nil
     end

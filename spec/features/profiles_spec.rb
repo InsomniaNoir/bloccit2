@@ -1,8 +1,10 @@
 require 'rails_helper'
+include TestFactories
+include Warden::Test::Helpers
+Warden.test_mode!
 
 describe "Visiting profiles" do
 
-  include TestFactories
 
   before do
     @user = authenticated_user

@@ -15,16 +15,18 @@ module ApplicationHelper
   end
 
   def up_vote_link_classes(post)
-    vote = current_user.voted(post)
-    base = "glyphicon glyphicon-chevron-up "
-    base += "voted" if vote && vote.up_vote?
-    base
+    classes = "glyphicon glyphicon-chevron-up "
+    if current_user.voted(post) && current_user.voted(post).up_vote?
+      classes << 'voted'
+    end
+    classes
   end
 
   def down_vote_link_classes(post)
-    vote = current_user.voted(post)
-    base = "glyphicon glyphicon-chevron-down "
-    base += "voted" if vote && vote.down_vote?
-    base
+    classes = "glyphicon glyphicon-chevron-down "
+    if current_user.voted(post) && current_user.voted(post).down_vote?
+      classes << 'voted'
+    end
+    classes
   end
 end
