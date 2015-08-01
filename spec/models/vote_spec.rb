@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+<<<<<<< Updated upstream
  describe Vote do
    describe "validations" do
      describe "value validation" do
@@ -37,3 +38,8 @@ require 'rails_helper'
    end
 
  end
+=======
+RSpec.describe Vote, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
+end
+>>>>>>> Stashed changes

@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Topics::PostsController < ApplicationController
    def show
      @post = Post.find(params[:id])
      @comments = @post.comments
