@@ -34,12 +34,12 @@ describe User do
     end
 
     it "returns users ordered by comments + posts" do
-      expect( user.top_rated ).to eq([@user2, @user1])
+      expect( User.top_rated ).to eq([@user2, @user1])
     end
 
     it "stores a 'post_count' on user" do
       users = User.top_rated
-      expect( user.top_rated.comments_count ).to eq(2)
+      expect( users.first.comments_count ).to eq(2)
     end
   end
 end
