@@ -54,7 +54,7 @@ group :production do
 
   # Puma
   gem 'puma'
-  
+
 end
 
 group :development, :test do
@@ -78,6 +78,9 @@ group :development, :test do
 
   # Puma
   gem 'puma'
+
+  # Factory Girl
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 gem "better_errors"

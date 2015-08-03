@@ -20,4 +20,26 @@ describe User do
       expect(@user.favorited(@post)).to eq(favorite)
     end
   end
+
+  describe ".top-rated" do
+
+    before do
+      @user1 = create(:user)
+      post = create(:post, user: @user1)
+      create(:comment, user: @user1, post: post)
+
+      @user2 = create(:user)
+      post = create(:post, user: @user2)
+      2.times { create(:comment, user: @user2, post: post) }
+    end
+
+    it "returns users ordered by comments + posts" do
+      expect( user.top_rated ).to eq([@user2, @user1])
+    end
+
+    it "stores a 'post_count' on user" do
+      users = User.top_rated
+      expect( user.top_rated.comments_count ).to eq(2)
+    end
+  end
 end
