@@ -51,6 +51,7 @@ gem 'newrelic_rpm'
 group :production do
   # PostgreSQL
   gem 'pg'
+  gem 'rails_12factor'
 
   # Puma
   gem 'puma'
