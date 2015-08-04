@@ -25,7 +25,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 #installed for Bloccit
-gem 'rails_12factor'
 gem 'pusher'
 gem 'devise'
 gem 'faker'
@@ -77,8 +76,8 @@ group :development, :test do
   # SQLite3
   gem 'sqlite3'
 
-  # Puma
-  gem 'puma'
+  # Thin
+  gem 'thin'
 
   # Factory Girl
   gem 'factory_girl_rails', '~> 4.0'
