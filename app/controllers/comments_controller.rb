@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
       flash[:error] = "Comment couldn't be deleted. Try again."
     end
 
-    reespond_to do |format|
+    respond_to do |format|
       format.html
       format.js
     end

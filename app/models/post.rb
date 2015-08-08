@@ -7,13 +7,20 @@ class Post < ActiveRecord::Base
   has_one :image
   has_many :favorites, dependent: :destroy
 
+  validates :title, length: { minimum: 5 }, presence: true
+  validates :body, length: { minimum: 20 }, presence: true
+  validates :topic, presence: true
+  validates :user, presence: true
+
   mount_uploader :image, ImagePostUploader
   default_scope { order('rank DESC') }
   scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
 
   def save_with_initial_vote
     ActiveRecord::Base.transaction do
-      user.votes.create(value: 1, post: self)
+      #user.votes.create(value: 1, post: self)
+      create_vote
+      save
     end
   end
 
@@ -30,7 +37,7 @@ class Post < ActiveRecord::Base
   end
 
   def update_rank
-    age_in_days = (created_at - Time.new(1970, 1, 1)) / (60 * 60 * 24)
+    age_in_days = (self.created_at - Time.new(1970, 1, 1)) / (60 * 60 * 24)
     new_rank = points + age_in_days
 
     update_attribute(:rank, new_rank)
@@ -40,8 +47,4 @@ class Post < ActiveRecord::Base
     user.votes.create(value: 1, post: self)
   end
 
-  validates :title, length: { minimum: 5 }, presence: true
-  validates :body, length: { minimum: 20 }, presence: true
-  validates :topic, presence: true
-  validates :user, presence: true
 end
