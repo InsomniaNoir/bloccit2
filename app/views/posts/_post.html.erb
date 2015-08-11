@@ -11,7 +11,6 @@
      <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
      Submitted <%= time_ago_in_words(post.created_at) %> ago by
      <%= post.user.name %><br>
-     <%= render partial: 'comments/form', locals: { comment: Comment.new, post: post } %>
      <%= post.comments.count %> comments
      <%= render post.comments %>
    </small>

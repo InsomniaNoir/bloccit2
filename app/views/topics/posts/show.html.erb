@@ -37,12 +37,10 @@
 
 <div class="row">
   <h2>Comments</h2>
-  <div class="col-md-6">
+  <div class='js-comments'>
     <%= render partial: 'comments/comment', collection: @comments %>
   </div>
-  <div class="col-md-6">
-    <h2>New Comment</h2>
-      <%= render partial: 'comments/form', locals: {post: @post} %>
-  </div>
+  <div class='new-comment'>
+    <%= render partial: 'comments/form', locals: { post: @post, comment: @comment } %>
   </div>
 </div>
